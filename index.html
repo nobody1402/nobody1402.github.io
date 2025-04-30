@@ -2,23 +2,14 @@
 <html lang="fa" dir="rtl">
 <style>
   @keyframes fade {
-    0% { opacity: 0; transform: translateY(-10px); }
-    10% { opacity: 1; transform: translateY(0); }
-    90% { opacity: 1; transform: translateY(0); }
+    0%   { opacity: 0; transform: translateY(-10px); }
+    20%  { opacity: 1; transform: translateY(0); }
+    95%  { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(10px); }
   }
 
-  .hover-gold:hover { color: #D4A017; transition: color 0.3s ease; }
-
-  .btn-gold {
-    background-color: #D4A017;
-    color: #1A1A1A;
-    transition: all 0.3s ease;
-  }
-
-  .btn-gold:hover {
-    background-color: #E6B800;
-    transform: scale(1.05);
+  .fade-img {
+    animation: fade 5s ease-in-out forwards;
   }
 </style>
   
@@ -156,7 +147,7 @@
     </header>
   );
 
-    // Home Component - با اسلایدر خودکار و انیمیشن نرم
+    // Home Component - اسلایدر خودکار با نمایش هر عکس ۴ ثانیه
 const Home = () => {
   const images = [
     "assets/slider-food.jpg",
@@ -170,7 +161,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 5000); // هر ۵ ثانیه یکبار
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -190,7 +181,7 @@ const Home = () => {
             key={currentImageIndex}
             src={images[currentImageIndex]}
             alt={`اسلایدر غذا ${currentImageIndex + 1}`}
-            className="w-full h-full object-cover opacity-0 animate-[fade_1s_ease-in-out_forwards]"
+            className="w-full h-full object-cover fade-img"
           />
         </div>
       </div>
