@@ -173,7 +173,7 @@
     </header>
   );
 
-    // Home Component - با اسلایدر خودکار و انیمیشن نرم از بالا به پایین
+    // Home Component - با اسلایدر خودکار و انیمیشن نرم
 const Home = () => {
   const images = [
     "assets/slider-food.jpg",
@@ -182,7 +182,6 @@ const Home = () => {
     "assets/slider-food4.jpg",
     "assets/slider-food5.jpg"
   ];
-
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -202,13 +201,13 @@ const Home = () => {
           <a href="about.html" className="btn-gold px-8 py-3 rounded-full font-medium">برای آشنایی با آشپزخونه کلیک کنید</a>
         </div>
 
-        {/* اسلایدر */} 
-        <div className="mt-12 overflow-hidden relative max-w-5xl mx-auto rounded-lg shadow-lg h-72 flex items-center justify-center">
+        {/* اسلایدر */}
+        <div className="mt-12 overflow-hidden relative max-w-5xl mx-auto rounded-lg shadow-lg h-72">
           <img
             key={currentImageIndex}
             src={images[currentImageIndex]}
             alt={`اسلایدر غذا ${currentImageIndex + 1}`}
-            className="absolute w-full h-full object-cover opacity-0 animate-[fade_1s_ease-in-out_forwards]"
+            className="w-full h-full object-cover opacity-0 animate-[fade_1s_ease-in-out_forwards]"
           />
         </div>
       </div>
