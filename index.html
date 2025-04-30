@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
+<style>
+  @keyframes fade {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .fade-img {
+    animation: fade 1s ease-in-out forwards;
+  }
+</style>
+  
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>آشپزخونه - غذای خانگی لوکس</title>
@@ -175,14 +188,6 @@ const Home = () => {
           />
         </div>
 
-        <style jsx>{`
-          @keyframes fade {
-            0% { opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { opacity: 0; }
-          }
-        `}</style>
       </div>
     </section>
   );
