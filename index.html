@@ -1,41 +1,24 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <style>
-  @keyframes slide-down {
-    from {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  @keyframes fade {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
   }
 
-  .slide-img {
-    animation: slide-down 1s ease-in-out forwards;
+  .hover-gold:hover { color: #D4A017; transition: color 0.3s ease; }
+
+  .btn-gold {
+    background-color: #D4A017;
+    color: #1A1A1A;
+    transition: all 0.3s ease;
   }
 
-  body { 
-    font-family: 'Vazir', sans-serif; 
-    background-color: #1A1A1A; 
-    color: #F5F5F5; 
-  }
-
-  .hover-gold:hover { 
-    color: #D4A017; 
-    transition: color 0.3s ease; 
-  }
-
-  .btn-gold { 
-    background-color: #D4A017; 
-    color: #1A1A1A; 
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-  }
-
-  .btn-gold:hover { 
-    background-color: #E6B800; 
-    transform: scale(1.05); 
+  .btn-gold:hover {
+    background-color: #E6B800;
+    transform: scale(1.05);
   }
 </style>
   
