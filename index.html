@@ -148,6 +148,24 @@
     </header>
   );
 
+      // Hero Section - بخش بالایی با تصویر و متن مرکزی
+const Hero = () => (
+  <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+    {/* تصویر پس‌زمینه */}
+    <div className="absolute inset-0 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center"></div>
+    
+    {/* لایه تیره روی عکس */}
+    <div className="absolute inset-0 bg-black opacity-50"></div>
+    
+    {/* متن در وسط */}
+    <div className="relative z-10 text-center px-4">
+      <h1 className="text-5xl md:text-6xl font-light text-[#D4A017] leading-tight max-w-3xl mx-auto">
+        به آشپزخونه‌ی خودتون خوش اومدین
+      </h1>
+    </div>
+  </section>
+);
+    
     // Home Component - اسلایدر خودکار با نمایش هر عکس ۴ ثانیه
 const Home = () => {
   const images = [
