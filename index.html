@@ -155,7 +155,7 @@
     </header>
   );
 
-      // Hero Section - بخش بالایی با تصویر و متن مرکزی
+      // Hero Component - یک سطری بدون شکستگی
 const Hero = () => (
   <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
     {/* تصویر پس‌زمینه */}
@@ -163,11 +163,11 @@ const Hero = () => (
     
     {/* لایه تیره روی عکس */}
     <div className="absolute inset-0 bg-black opacity-50"></div>
-    
+
     {/* متن در وسط */}
     <div className="relative z-10 text-center px-4">
-      <h1 className="text-5xl md:text-6xl font-light text-[#D4A017] leading-tight max-w-3xl mx-auto">
-        "به آشپزخونه خودتون خوش اومدین"
+      <h1 className="text-4xl md:text-5xl font-light text-[#D4A017] leading-tight whitespace-nowrap">
+        به آشپزخونه خودتون خوش اومدین
       </h1>
     </div>
   </section>
