@@ -136,6 +136,25 @@
 
   // Home Section
   const Home = () => (
+    // Home Component - با اسلایدر خودکار ۵ تصویر
+const Home = () => {
+  const images = [
+    "assets/slider-food.jpg",
+    "assets/slider-food2.jpg",
+    "assets/slider-food3.jpg",
+    "assets/slider-food4.jpg",
+    "assets/slider-food5.jpg"
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
     <section id="home" className="bg-[#1A1A1A] py-16 text-center">
       <div className="container mx-auto">
         <h2 className="text-4xl font-light tracking-wide text-[#F5F5F5] mb-6">غذای خانگی، با طعم لوکس</h2>
@@ -144,11 +163,30 @@
           <a href="#search" className="btn-gold px-8 py-3 rounded-full font-medium">جستجوی آشپز</a>
           <a href="about.html" className="btn-gold px-8 py-3 rounded-full font-medium">برای آشنایی با آشپزخونه کلیک کنید</a>
         </div>
-        <div className="mt-12">
-          <img src="assets/slider-food.jpg" alt="اسلایدر غذاها" className="w-full max-w-5xl mx-auto rounded-lg shadow-lg" />
+
+        {/* اسلایدر */}
+        <div className="mt-12 overflow-hidden relative max-w-5xl mx-auto rounded-lg shadow-lg">
+          <img
+            key={currentImageIndex}
+            src={images[currentImageIndex]}
+            alt={`غذای شماره ${currentImageIndex + 1}`}
+            className="w-full h-auto object-cover transition-opacity duration-1000 ease-in-out"
+            style={{ animation: 'fade 1s ease-in-out forwards' }}
+          />
         </div>
+
+        <style jsx>{`
+          @keyframes fade {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+          }
+        `}</style>
       </div>
     </section>
+  );
+};
   );
 
   // About Placeholder in index.html (just a redirect message)
