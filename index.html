@@ -509,20 +509,21 @@ const Home = () => {
 
   // Main App Component
   const App = () => (
-    <div>
-      <SidebarMenu />
-      <Header />
-      <Home />
-      <About />
-      <Signup />
-      <Search />
-      <CookProfile />
-      <Reserve />
-      <Chat />
-      <Footer />
-      <BackToTopButton />
-    </div>
-  );
+  <div>
+    <SidebarMenu />
+    <Header />
+    <Hero />       {/* اینجا */}
+    <Home />
+    <About />
+    <Signup />
+    <Search />
+    <CookProfile />
+    <Reserve />
+    <Chat />
+    <Footer />
+    <BackToTopButton />
+  </div>
+);
 
   ReactDOM.render(<App />, document.getElementById('root'));
 </script>
