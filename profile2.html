@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>آقای محمدی - آشپزخونه</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://v1.fontapi.ir/css/Vazir');
+    body {
+      font-family: 'Vazir', sans-serif;
+      background-color: #0A1D37;
+      color: #F5F5F5;
+    }
+    .hover-gold:hover {
+      color: #D4A017;
+    }
+    .btn-gold {
+      background-color: #D4A017;
+      color: #1A1A1A;
+      transition: all 0.3s ease;
+    }
+    .btn-gold:hover {
+      background-color: #E6B800;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-[#0A1D37]">
+
+  <!-- Header -->
+  <header class="bg-[#0A1D37] text-[#F5F5F5] p-6 sticky top-0 z-10">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-3">
+          <path d="M20 10C20 10 22 8 25 8C28 8 30 10 30 12C30 14 28 16 25 16C22 16 20 14 20 14C20 14 18 16 15 16C12 16 10 14 10 12C10 10 12 8 15 8C18 8 20 10 20 10Z" stroke="#D4A017" stroke-width="2"/>
+          <path d="M15 16V30M25 16V30" stroke="#D4A017" stroke-width="2"/>
+        </svg>
+        <h1 class="text-2xl font-light tracking-wider" style="text-shadow: 0 0 5px rgba(212, 160, 23, 0.3)">آشپزخونه</h1>
+      </div>
+      <nav class="space-x-6 rtl:space-x-reverse">
+        <a href="index.html" class="hover-gold">خانه</a>
+        <a href="about.html" class="hover-gold">درباره ما</a>
+        <a href="index.html#signup" class="hover-gold">ثبت‌نام</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-16 bg-[#0A1D37]">
+    <div class="container mx-auto max-w-5xl px-4">
+      <div class="bg-[#1A1A1A] p-8 rounded-lg border border-[#D4A017]/20">
+        <div class="flex items-center mb-8">
+          <img src="assets/bradpit.jpg" alt="پروفایل آقای محمدی" class="w-32 h-32 rounded-full mr-6 border border-[#D4A017]/30">
+          <div>
+            <h2 class="text-3xl font-light text-[#F5F5F5] tracking-wide">آقای محمدی</h2>
+            <p class="text-[#B0B0B0]">تهران، ونک | امتیاز: 4.8 ★</p>
+          </div>
+        </div>
+        <h3 class="text-2xl font-light text-[#F5F5F5] mb-6 tracking-wide">منوی غذا</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+          <div class="p-4 border border-[#D4A017]/20 rounded">
+            <h4 class="font-light text-[#F5F5F5]">زرشک‌پلو با دیزاین (10 نفر)</h4>
+            <p class="text-[#B0B0B0]">زرشک‌پلو با مرغ و چیدمان حرفه‌ای</p>
+            <p class="text-[#D4A017] font-medium">600,000 تومان</p>
+          </div>
+          <div class="p-4 border border-[#D4A017]/20 rounded">
+            <h4 class="font-light text-[#F5F5F5]">سالاد ال گانبار</h4>
+            <p class="text-[#B0B0B0]">سالاد با مواد تازه و چیدمان لوکس</p>
+            <p class="text-[#D4A017] font-medium">200,000 تومان</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-light text-[#F5F5F5] mb-6 tracking-wide">گالری نمونه کار</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
+          <img src="assets/zereshkpolo.jpg" alt="زرشک‌پلو" class="w-full h-40 object-cover rounded">
+          <img src="assets/ghormesabzi.jpg" alt="قورمه سبزی" class="w-full h-40 object-cover rounded">
+        </div>
+
+        <h3 class="text-2xl font-light text-[#F5F5F5] mb-6 tracking-wide">نظرات</h3>
+        <div class="p-4 border border-[#D4A017]/20 rounded mb-8">
+          <p class="text-[#B0B0B0]">غذای حرفه‌ای و دیزاینش فوق‌العاده بود.</p>
+          <p class="text-[#D4A017]">★★★★★</p>
+        </div>
+
+        <a href="#reserve" class="btn-gold px-8 py-3 rounded-full font-medium">رزرو غذا</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-[#0A1D37] text-[#F5F5F5] py-8 mt-12">
+    <div class="container mx-auto text-center">
+      <p class="text-[#B0B0B0]">© 2025 آشپزخونه. تمامی حقوق محفوظ است.</p>
+      <div class="mt-4 space-x-6">
+        <a href="#" class="hover-gold">پشتیبانی</a>
+        <a href="#" class="hover-gold">شرایط و قوانین</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
