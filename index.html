@@ -11,6 +11,28 @@
   .fade-img {
     animation: fade 1s ease-in-out forwards;
   }
+
+  body { 
+    font-family: 'Vazir', sans-serif; 
+    background-color: #1A1A1A; 
+    color: #F5F5F5; 
+  }
+
+  .hover-gold:hover { 
+    color: #D4A017; 
+    transition: color 0.3s ease; 
+  }
+
+  .btn-gold { 
+    background-color: #D4A017; 
+    color: #1A1A1A; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+  }
+
+  .btn-gold:hover { 
+    background-color: #E6B800; 
+    transform: scale(1.05); 
+  }
 </style>
   
   <head>
@@ -163,7 +185,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 5000); // هر ۵ ثانیه
     return () => clearInterval(interval);
   }, []);
 
@@ -183,11 +205,9 @@ const Home = () => {
             key={currentImageIndex}
             src={images[currentImageIndex]}
             alt={`غذای شماره ${currentImageIndex + 1}`}
-            className="w-full h-auto object-cover transition-opacity duration-1000 ease-in-out"
-            style={{ animation: 'fade 1s ease-in-out forwards' }}
+            className="w-full h-auto object-cover fade-img"
           />
         </div>
-
       </div>
     </section>
   );
