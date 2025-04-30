@@ -2,14 +2,29 @@
 <html lang="fa" dir="rtl">
 <style>
   @keyframes fade {
-    0%   { opacity: 0; }
-    10%  { opacity: 1; }
-    90%  { opacity: 1; }
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
     100% { opacity: 0; }
   }
 
-  .fade-img {
-    animation: fade 1s ease-in-out forwards;
+  #slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    height: auto;
+    margin: 3rem auto;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 20px rgba(212, 160, 23, 0.2);
+  }
+
+  .slide {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    animation: fade 5s ease-in-out forwards;
   }
 
   body { 
@@ -169,7 +184,7 @@
     </header>
   );
 
-    // Home Component - با اسلایدر خودکار ۵ تصویر
+    // Home Component - اسلایدر خودکار با انیمیشن نرم و ۵ ثانیه
 const Home = () => {
   const images = [
     "assets/slider-food.jpg",
@@ -178,12 +193,13 @@ const Home = () => {
     "assets/slider-food4.jpg",
     "assets/slider-food5.jpg"
   ];
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 5000); // هر ۵ ثانیه
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -198,13 +214,13 @@ const Home = () => {
         </div>
 
         {/* اسلایدر */}
-        <div className="mt-12 overflow-hidden relative max-w-5xl mx-auto rounded-lg shadow-lg">
-          <img
-            key={currentImageIndex}
-            src={images[currentImageIndex]}
-            alt={`اسلایدر غذا ${currentImageIndex + 1}`}
-            className="w-full h-auto object-cover fade-img"
-          />
+        <div id="slider-container" className="mt-12">
+          <div
+            className="slide"
+            style={{
+              backgroundImage: `url('${images[currentImageIndex]}')`
+            }}
+          ></div>
         </div>
       </div>
     </section>
