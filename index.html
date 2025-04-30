@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آشپزخونه - غذای خانگی لوکس</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.6/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://v1.fontapi.ir/css/Vazir');
+    body { 
+      font-family: 'Vazir', sans-serif; 
+      background-color: #1A1A1A; 
+      color: #F5F5F5; 
+    }
+    .hover-gold:hover { 
+      color: #D4A017; 
+      transition: color 0.3s ease; 
+    }
+    .btn-gold { 
+      background-color: #D4A017; 
+      color: #1A1A1A; 
+      transition: background-color 0.3s ease, transform 0.2s ease; 
+    }
+    .btn-gold:hover { 
+      background-color: #E6B800; 
+      transform: scale(1.05); 
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    // Header Component
+    const Header = () => (
+      <header className="bg-[#0A1D37] text-[#F5F5F5] p-6 sticky top-0 z-10">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-3">
+              <path d="M20 10C20 10 22 8 25 8C28 8 30 10 30 12C30 14 28 16 25 16C22 16 20 14 20 14C20 14 18 16 15 16C12 16 10 14 10 12C10 10 12 8 15 8C18 8 20 10 20 10Z" stroke="#D4A017" strokeWidth="2"/>
+              <path d="M15 16V30M25 16V30" stroke="#D4A017" strokeWidth="2"/>
+            </svg>
+            <h1 className="text-2xl font-light tracking-wider" style={{ textShadow: '0 0 5px rgba(212, 160, 23, 0.3)' }}>آشپزخونه</h1>
+          </div>
+          <nav className="space-x-6">
+            <a href="#home" className="hover-gold">خانه</a>
+            <a href="about.html" className="hover-gold">درباره ما</a>
+            <a href="#search" className="hover-gold">جستجو</a>
+            <a href="#signup" className="hover-gold">ثبت‌نام</a>
+          </nav>
+        </div>
+      </header>
+    );
+
+    // Home Section
+    const Home = () => (
+      <section id="home" className="bg-[#1A1A1A] py-16 text-center">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-light tracking-wide text-[#F5F5F5] mb-6">غذای خانگی، با طعم لوکس</h2>
+          <p className="text-lg text-[#B0B0B0] max-w-2xl mx-auto mb-8">طعم اصیل خانه را با کیفیت بی‌نظیر و دیزاین حرفه‌ای تجربه کنید.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#search" className="btn-gold px-8 py-3 rounded-full font-medium">جستجوی آشپز</a>
+            <a href="about.html" className="btn-gold px-8 py-3 rounded-full font-medium">برای آشنایی با آشپزخونه کلیک کنید</a>
+          </div>
+          <div className="mt-12">
+            <img src="https://via.placeholder.com/1200x400?text=غذای+لوکس" alt="اسلایدر غذاها" className="w-full max-w-5xl mx-auto rounded-lg shadow-lg" />
+          </div>
+        </div>
+      </section>
+    );
+
+    // About Placeholder in index.html (just a redirect message)
+    const About = () => (
+      <section id="about" className="py-16 bg-[#0A1D37] text-center">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-light text-[#F5F5F5] mb-4">درباره آشپزخونه</h2>
+          <p className="text-[#B0B0B0] mb-6">برای کسب اطلاعات بیشتر، لطفاً به صفحه درباره ما مراجعه کنید.</p>
+          <a href="about.html" className="btn-gold px-8 py-3 rounded-full font-medium">مشاهده اطلاعات بیشتر</a>
+        </div>
+      </section>
+    );
+
+    // Signup Component
+    const Signup = () => {
+      const [role, setRole] = useState("applicant");
+      const [formData, setFormData] = useState({ phone: "", alias: "" });
+      const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+      };
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        alert(`ثبت‌نام با موفقیت انجام شد!
+نقش: ${role === "cook" ? "آشپز" : "متقاضی"}
+شماره: ${formData.phone}
+نام مستعار: ${formData.alias}`);
+      };
+      return (
+        <section id="signup" className="py-16 bg-[#0A1D37]">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-light text-center text-[#F5F5F5] mb-10 tracking-wide">پیوستن به آشپزخونه</h2>
+            <div className="max-w-lg mx-auto bg-[#1A1A1A] p-8 rounded-lg border border-[#D4A017]/20">
+              <div>
+                <label className="block text-[#B0B0B0] mb-2">نقش</label>
+                <select
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  className="w-full p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded"
+                >
+                  <option value="applicant">متقاضی</option>
+                  <option value="cook">آشپز</option>
+                </select>
+                <label className="block text-[#B0B0B0] mt-6 mb-2">شماره موبایل</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded"
+                  required
+                />
+                <label className="block text-[#B0B0B0] mt-6 mb-2">نام مستعار</label>
+                <input
+                  type="text"
+                  name="alias"
+                  value={formData.alias}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded"
+                  required
+                />
+                {role === "cook" && (
+                  <label className="block text-[#B0B0B0] mt-6 mb-2">
+                    آپلود مدرک شناسایی (شبیه‌سازی)
+                    <input type="file" className="w-full p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded" disabled />
+                  </label>
+                )}
+                <button
+                  onClick={handleSubmit}
+                  className="w-full mt-8 btn-gold p-3 rounded-full font-medium"
+                >
+                  ثبت‌نام
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // Search Component
+    const Search = () => {
+      const cooks = [
+        { id: 1, name: "خانم حسینی", city: "تهران", area: "سعادت‌آباد", foodType: "سنتی", rating: 4.5, image: "https://via.placeholder.com/300?text=قورمه‌سبزی" },
+        { id: 2, name: "آقای محمدی", city: "تهران", area: "ونک", foodType: "دیزاین‌شده", rating: 4.8, image: "https://via.placeholder.com/300?text=زرشک‌پلو" },
+      ];
+      return (
+        <section id="search" className="py-16 bg-[#1A1A1A]">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-light text-center text-[#F5F5F5] mb-10 tracking-wide">آشپزهای برگزیده</h2>
+            <div className="flex flex-wrap gap-4 mb-12 justify-center">
+              <select className="p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded">
+                <option>شهر</option>
+                <option>تهران</option>
+              </select>
+              <select className="p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded">
+                <option>محله</option>
+                <option>سعادت‌آباد</option>
+                <option>ونک</option>
+              </select>
+              <select className="p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded">
+                <option>نوع غذا</option>
+                <option>سنتی</option>
+                <option>دیزاین‌شده</option>
+              </select>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {cooks.map((cook) => (
+                <div key={cook.id} className="bg-[#2A2A2A] p-6 rounded-lg border border-[#D4A017]/20 text-center">
+                  <img src={cook.image} alt="غذا" className="w-full h-48 object-cover rounded mb-4" />
+                  <h3 className="text-xl font-light text-[#F5F5F5]">{cook.name}</h3>
+                  <p className="text-[#B0B0B0]">{cook.city}، {cook.area}</p>
+                  <p className="text-[#B0B0B0]">نوع غذا: {cook.foodType}</p>
+                  <p className="text-[#D4A017]">امتیاز: {cook.rating} ★</p>
+                  <a href="#profile" className="mt-4 inline-block btn-gold px-6 py-2 rounded-full font-medium">مشاهده پروفایل</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // Cook Profile Component
+    const CookProfile = () => {
+      const menu = [
+        { name: "قورمه‌سبزی (4 نفر)", price: 150000, description: "قورمه‌سبزی سنتی با سبزی تازه" },
+        { name: "زرشک‌پلو با دیزاین (10 نفر)", price: 600000, description: "زرشک‌پلو با مرغ و گارنیش شیک" },
+      ];
+      return (
+        <section id="profile" className="py-16 bg-[#0A1D37]">
+          <div className="container mx-auto">
+            <div className="max-w-5xl mx-auto bg-[#1A1A1A] p-8 rounded-lg border border-[#D4A017]/20">
+              <div className="flex items-center mb-8">
+                <img src="https://via.placeholder.com/120" alt="پروفایل" className="w-32 h-32 rounded-full mr-6 border border-[#D4A017]/30" />
+                <div>
+                  <h2 className="text-3xl font-light text-[#F5F5F5] tracking-wide">خانم حسینی</h2>
+                  <p className="text-[#B0B0B0]">تهران، سعادت‌آباد | امتیاز: 4.5 ★</p>
+                </div>
+              </div>
+              <h3 className="text-2xl font-light text-[#F5F5F5] mb-6 tracking-wide">منوی غذا</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                {menu.map((item, index) => (
+                  <div key={index} className="p-4 border border-[#D4A017]/20 rounded">
+                    <h4 className="font-light text-[#F5F5F5]">{item.name}</h4>
+                    <p className="text-[#B0B0B0]">{item.description}</p>
+                    <p className="text-[#D4A017] font-medium">{item.price.toLocaleString()} تومان</p>
+                  </div>
+                ))}
+              </div>
+              <h3 className="text-2xl font-light text-[#F5F5F5] mb-6 tracking-wide">گالری نمونه کار</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
+                <img src="https://via.placeholder.com/300?text=دیزاین1" alt="دیزاین" className="w-full h-40 object-cover rounded" />
+                <img src="https://via.placeholder.com/300?text=دیزاین2" alt="دیزاین" className="w-full h-40 object-cover rounded" />
+              </div>
+              <h3 className="text-2xl font-light text-[#F5F5F5] mb-6 tracking-wide">نظرات</h3>
+              <div className="p-4 border border-[#D4A017]/20 rounded mb-8">
+                <p className="text-[#B0B0B0]">غذا عالی بود و دیزاین بسیار شیک!</p>
+                <p className="text-[#D4A017]">★★★★★</p>
+              </div>
+              <a href="#reserve" className="btn-gold px-8 py-3 rounded-full font-medium">رزرو غذا</a>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // Reserve Component
+    const Reserve = () => {
+      const [formData, setFormData] = useState({
+        food: "",
+        people: 1,
+        date: "",
+        serviceType: "delivery",
+        design: false,
+      });
+      const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
+      };
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        const commission = formData.design ? 0.15 : 0.1;
+        const basePrice = formData.food.includes("زرشک") ? 600000 : 150000;
+        const totalPrice = basePrice * formData.people * (1 + commission);
+        alert(`رزرو ثبت شد!
+غذا: ${formData.food}
+تعداد: ${formData.people}
+نوع خدمت: ${formData.serviceType === "delivery" ? "تحویلی" : "حضوری"}
+دیزاین: ${formData.design ? "بله" : "خیر"}
+قیمت نهایی: ${totalPrice.toLocaleString()} تومان`);
+      };
+      return (
+        <section id="reserve" className="py-16 bg-[#1A1A1A]">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-light text-center text-[#F5F5F5] mb-10 tracking-wide">رزرو غذای شما</h2>
+            <div className="max-w-lg mx-auto bg-[#2A2A2A] p-8 rounded-lg border border-[#D4A017]/20">
+              <div>
+                <label className="block text-[#B0B0B0] mb-2">انتخاب غذا</label>
+                <select name="food" value={formData.food} onChange={handleChange} className="w-full p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded" required>
+                  <option value="">انتخاب کنید</option>
+                  <option value="قورمه‌سبزی (4 نفر)">قورمه‌سبزی (4 نفر)</option>
+                  <option value="زرشک‌پلو با دیزاین (10 نفر)">زرشک‌پلو با دیزاین (10 نفر)</option>
+                </select>
+                <label className="block text-[#B0B0B0] mt-6 mb-2">تعداد نفرات</label>
+                <input
+                  type="number"
+                  name="people"
+                  value={formData.people}
+                  onChange={handleChange}
+                  min="1"
+                  className="w-full p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded"
+                  required
+                />
+                <label className="block text-[#B0B0B0] mt-6 mb-2">تاریخ و ساعت</label>
+                <input
+                  type="datetime-local"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded"
+                  required
+                />
+                <label className="block text-[#B0B0B0] mt-6 mb-2">نوع خدمت</label>
+                <select name="serviceType" value={formData.serviceType} onChange={handleChange} className="w-full p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded">
+                  <option value="delivery">تحویل غذا</option>
+                  <option value="inperson">آشپزی حضوری</option>
+                </select>
+                <label className="block text-[#B0B0B0] mt-6 mb-2">
+                  <input type="checkbox" name="design" checked={formData.design} onChange={handleChange} className="mr-2 accent-[#D4A017]" />
+                  دیزاین حرفه‌ای (هزینه اضافی)
+                </label>
+                <button
+                  onClick={handleSubmit}
+                  className="w-full mt-8 btn-gold p-3 rounded-full font-medium"
+                >
+                  ثبت رزرو
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // Chat Component
+    const Chat = () => {
+      const [message, setMessage] = useState("");
+      const [messages, setMessages] = useState([
+        { sender: "cook", text: "سلام! مواد اولیه رو خودتون تهیه می‌کنید؟" },
+      ]);
+      const handleSend = () => {
+        if (message.trim()) {
+          setMessages([...messages, { sender: "applicant", text: message }]);
+          setMessage("");
+        }
+      };
+      return (
+        <section id="chat" className="py-16 bg-[#0A1D37]">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-light text-center text-[#F5F5F5] mb-10 tracking-wide">گفت‌وگو با آشپز</h2>
+            <div className="max-w-3xl mx-auto bg-[#1A1A1A] p-8 rounded-lg border border-[#D4A017]/20">
+              <div className="h-64 overflow-y-auto mb-6 p-4 border border-[#D4A017]/20 rounded">
+                {messages.map((msg, index) => (
+                  <div key={index} className={`mb-3 ${msg.sender === "applicant" ? "text-right" : "text-left"}`}>
+                    <p className={`inline-block p-3 rounded-lg ${msg.sender === "applicant" ? "bg-[#D4A017]/20 text-[#F5F5F5]" : "bg-[#2A2A2A] text-[#B0B0B0]"}`}>
+                      {msg.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex gap-3">
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="flex-1 p-3 bg-[#2A2A2A] text-[#F5F5F5] border border-[#D4A017]/30 rounded"
+                  placeholder="پیام خود را بنویسید..."
+                />
+                <button onClick={handleSend} className="btn-gold px-6 py-3 rounded-full font-medium">
+                  ارسال
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // Footer Component
+    const Footer = () => (
+      <footer className="bg-[#0A1D37] text-[#F5F5F5] py-8">
+        <div className="container mx-auto text-center">
+          <p className="text-[#B0B0B0]">© 2025 آشپزخونه. تمامی حقوق محفوظ است.</p>
+          <div className="mt-4 space-x-6">
+            <a href="#support" className="hover-gold">پشتیبانی</a>
+            <a href="#terms" className="hover-gold">شرایط و قوانین</a>
+          </div>
+        </div>
+      </footer>
+    );
+
+    // Main App Component
+    const App = () => (
+      <div>
+        <Header />
+        <Home />
+        <About />
+        <Signup />
+        <Search />
+        <CookProfile />
+        <Reserve />
+        <Chat />
+        <Footer />
+      </div>
+    );
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
