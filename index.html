@@ -1,30 +1,19 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <style>
-  @keyframes fade {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; }
+  @keyframes slide-down {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
-  #slider-container {
-    position: relative;
-    width: 100%;
-    max-width: 960px;
-    height: auto;
-    margin: 3rem auto;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 20px rgba(212, 160, 23, 0.2);
-  }
-
-  .slide {
-    width: 100%;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    animation: fade 5s ease-in-out forwards;
+  .slide-img {
+    animation: slide-down 1s ease-in-out forwards;
   }
 
   body { 
@@ -184,7 +173,7 @@
     </header>
   );
 
-    // Home Component - اسلایدر خودکار با انیمیشن نرم و ۵ ثانیه
+    // Home Component - با اسلایدر خودکار و انیمیشن نرم از بالا به پایین
 const Home = () => {
   const images = [
     "assets/slider-food.jpg",
@@ -198,8 +187,8 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000); // هر ۵ ثانیه یکبار
     return () => clearInterval(interval);
   }, []);
 
@@ -213,14 +202,14 @@ const Home = () => {
           <a href="about.html" className="btn-gold px-8 py-3 rounded-full font-medium">برای آشنایی با آشپزخونه کلیک کنید</a>
         </div>
 
-        {/* اسلایدر */}
-        <div id="slider-container" className="mt-12">
-          <div
-            className="slide"
-            style={{
-              backgroundImage: `url('${images[currentImageIndex]}')`
-            }}
-          ></div>
+        {/* اسلایدر */} 
+        <div className="mt-12 overflow-hidden relative max-w-5xl mx-auto rounded-lg shadow-lg h-72 flex items-center justify-center">
+          <img
+            key={currentImageIndex}
+            src={images[currentImageIndex]}
+            alt={`اسلایدر غذا ${currentImageIndex + 1}`}
+            className="absolute w-full h-full object-cover opacity-0 animate-[fade_1s_ease-in-out_forwards]"
+          />
         </div>
       </div>
     </section>
